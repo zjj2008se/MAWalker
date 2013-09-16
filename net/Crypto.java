@@ -10,8 +10,10 @@ import org.apache.commons.codec.binary.*;
 import walker.Info;
 
 public class Crypto {
+	//日服key
 	private static final String BaseSecretKey = "uH9JF2cHf6OppaC1";
-	//private static final String UnusedSecretKey = "A1dPUcrvur2CRQyl";	
+	//国服key
+	//private static final String UnusedSecretKey = "rBwj1MIAivVN222b";	
 	
 	
 	

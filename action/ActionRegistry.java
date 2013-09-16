@@ -8,11 +8,11 @@ public class ActionRegistry {
 		ADD_AREA,
 		GOTO_FLOOR,	// 快速取得AP，BC以及经验值和物品等信息
 		GET_FAIRY_LIST,
-		PRIVATE_FAIRY_BATTLE,
+		//PRIVATE_FAIRY_BATTLE, //国服没里妖
 		EXPLORE,
 		GET_FAIRY_REWARD,
-		GUILD_TOP,
-		GUILD_BATTLE,
+		//GUILD_TOP,	//骑士团没开
+		//GUILD_BATTLE,	//骑士团没开
 		SELL_CARD,
 		LV_UP
 	}

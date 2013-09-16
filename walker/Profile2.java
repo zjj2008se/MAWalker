@@ -61,7 +61,7 @@ public class Profile2 {
 				Go.log("Rare Fairy Appear");
 			case privateFairyAppear:
 			case fairyCanBattle:
-				result.add(ActionRegistry.Action.PRIVATE_FAIRY_BATTLE);
+				//result.add(ActionRegistry.Action.PRIVATE_FAIRY_BATTLE);
 				break;
 			case innerMapJump:
 				Go.log("Map Status Changed!");
@@ -162,7 +162,7 @@ public class Profile2 {
 			}
 			
 			break;
-		case PRIVATE_FAIRY_BATTLE:
+		/*case PRIVATE_FAIRY_BATTLE:
 			try {
 				if (PrivateFairyBattle.run()) {
 					String result = "";
@@ -195,7 +195,7 @@ public class Profile2 {
 			} catch (Exception ex) {
 				if (ErrorData.currentErrorType == ErrorData.ErrorType.none) throw ex;
 			}
-			break;
+			break;*/
 		case EXPLORE:
 			try {
 				if (Explore.run()) {

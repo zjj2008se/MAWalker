@@ -35,13 +35,13 @@ public class Think {
 					score = GF_PRI;
 				}
 				break;
-			case PRIVATE_FAIRY_BATTLE:
+			/*case PRIVATE_FAIRY_BATTLE:
 				if (Info.Profile == 2) {
 					Process.info.fairy.No = "2";
 					return Action.PRIVATE_FAIRY_BATTLE;
 				}
 				if (Think.canBattle()) return Action.PRIVATE_FAIRY_BATTLE;
-				break;
+				break;*/
 			case EXPLORE:
 				int p = explorePoint();
 				if (p > score) {
@@ -49,11 +49,11 @@ public class Think {
 					score = p;
 				}
 				break;
-			case GUILD_BATTLE:
+			/*case GUILD_BATTLE:
 				Process.info.fairy.No = Info.PublicFairyBattle.No;
 				return Action.GUILD_BATTLE;
 			case GUILD_TOP:
-				return Action.GUILD_TOP;
+				return Action.GUILD_TOP;*/
 			case GET_FAIRY_REWARD:
 				return Action.GET_FAIRY_REWARD;
 			case NOTHING:

@@ -15,7 +15,7 @@ import walker.Process;
 import action.ActionRegistry.Action;
 
 public class GuildTop {
-	public static final Action Name = Action.GUILD_TOP;
+	//public static final Action Name = Action.GUILD_TOP;
 	private static final String URL_GUILD_TOP = "http://web.million-arthurs.com/connect/app/guild/guild_top?cyt=1";
 	
 	private static byte[] response;

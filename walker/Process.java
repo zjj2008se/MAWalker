@@ -43,7 +43,7 @@ public class Process {
 				long start = System.currentTimeMillis();
 				execute(Think.doIt(getPossibleAction()));
 				long delta = System.currentTimeMillis() - start;
-				if (delta < 5000) Thread.sleep(5000 - delta);
+				if (delta < 5000) Thread.sleep(10000 - delta);
 				if (info.events.empty() && info.NoFairy) Thread.sleep(600000); // 半夜速度慢点
 			}
 		} catch (Exception ex) {
@@ -80,11 +80,12 @@ public class Process {
 				break;
 			case fairyTransform:
 				Go.log("Rare Fairy Appear");
-			case privateFairyAppear:
+			//case privateFairyAppear: //国服没里妖
 			case fairyCanBattle:
-				result.add(Action.PRIVATE_FAIRY_BATTLE);
+				//result.add(Action.PRIVATE_FAIRY_BATTLE);
 				break;
-			case fairyReward:
+				//国服没骑士团
+			/*case fairyReward:
 				if (info.ticket > 0) {
 					result.add(Action.GUILD_TOP);
 				} else if (info.ticket < 0) {
@@ -92,7 +93,7 @@ public class Process {
 				} else {
 					result.add(Action.GET_FAIRY_REWARD);
 				}
-				break;
+				break;*/
 			case innerMapJump:
 				Go.log("Map Status Changed!");
 			case needFloorInfo:	
@@ -109,14 +110,16 @@ public class Process {
 				break;
 			case getFairyReward:
 				break;
-			case guildBattle:
+				//国服没骑士团取消功能
+			/*case guildBattle:
 				result.add(Action.GUILD_BATTLE);
 				break;
 			case guildTopRetry:
 			case guildTop:
+				//
 			case ticketFull:
 				result.add(Action.GUILD_TOP);
-				break;
+				break;*/
 			case needAPBCInfo:
 				result.add(Action.GOTO_FLOOR);
 				break;
@@ -258,7 +261,7 @@ public class Process {
 			}
 			
 			break;
-		case PRIVATE_FAIRY_BATTLE:
+		/*case PRIVATE_FAIRY_BATTLE:
 			try {
 				if (PrivateFairyBattle.run()) {
 					String result = "";
@@ -292,6 +295,7 @@ public class Process {
 				if (ErrorData.currentErrorType == ErrorData.ErrorType.none) throw ex;
 			}
 			break;
+			*/
 		case EXPLORE:
 			try {
 				if (Explore.run()) {
@@ -305,7 +309,7 @@ public class Process {
 				if (ErrorData.currentErrorType == ErrorData.ErrorType.none) throw ex;
 			}
 			break;
-		case GUILD_BATTLE:
+		/*case GUILD_BATTLE:
 			try {
 				if (GuildBattle.run()) {
 					String result = "";
@@ -348,7 +352,7 @@ public class Process {
 			} catch (Exception ex) {
 				if (ErrorData.currentErrorType == ErrorData.ErrorType.none) throw ex;
 			}
-			break;
+			break;*/
 		case GET_FAIRY_REWARD:
 			try {
 				if (GetFairyReward.run()) {

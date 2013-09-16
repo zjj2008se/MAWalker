@@ -23,6 +23,7 @@ public class Info {
 	public static String LoginPw = "";
 	public static int Profile = 1;
 	
+	
 	// user info
 	public String username = "";
 	public int ap = 0;
@@ -77,6 +78,12 @@ public class Info {
 	 * 允许舔同一个怪
 	 */
 	public static boolean AllowAttackSameFairy = true;
+	/**
+	 * 加点AP或者BC,0为AP，1为BC
+	 **/
+	public static boolean PointAddSwitch = true;
+	
+	
 	
 	// card list
 	public ArrayList<Card> cardList;
@@ -135,8 +142,9 @@ public class Info {
 		case LOGIN:	
 			this.SetTimeoutByEntry(TimeoutEntry.fairy);
 			this.SetTimeoutByEntry(TimeoutEntry.login);
-		case PRIVATE_FAIRY_BATTLE:
-		case GUILD_BATTLE:
+			//国服无骑士团
+		/*case PRIVATE_FAIRY_BATTLE:
+		case GUILD_BATTLE:*/
 			this.SetTimeoutByEntry(TimeoutEntry.ticket);
 		case GOTO_FLOOR:
 		case EXPLORE:

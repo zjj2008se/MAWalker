@@ -16,9 +16,14 @@ import walker.Process;
 
 public class Login {
 	public static final ActionRegistry.Action Name = ActionRegistry.Action.LOGIN;
-	// URLs
+	// URLs日服
+	/*
 	private static final String URL_CHECK_INSPECTION = "http://web.million-arthurs.com/connect/app/check_inspection?cyt=1";
-	private static final String URL_LOGIN = "http://web.million-arthurs.com/connect/app/login?cyt=1";
+	private static final String URL_LOGIN = "http://web.million-arthurs.com/connect/app/login?cyt=1";*/
+	//国服
+	private static final String URL_CHECK_INSPECTION = "http://game1-cbt.ma.sdo.com:10001/connect/app/check_inspection?cyt=1";
+	private static final String URL_LOGIN = "http://game1-cbt.ma.sdo.com:10001/connect/app/login?cyt=1";
+	
 	// error type
 	public static final String ERR_CHECK_INSPECTION = "Login/check_inspection";
 	public static final String ERR_LOGIN = "Login/login";

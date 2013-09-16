@@ -18,7 +18,7 @@ import walker.Process;
 import action.ActionRegistry.Action;
 
 public class PrivateFairyBattle {
-	public static final Action Name = Action.PRIVATE_FAIRY_BATTLE;
+	//public static final Action Name = Action.PRIVATE_FAIRY_BATTLE;
 	
 	private static final String URL_PRIVATE_BATTLE = "http://web.million-arthurs.com/connect/app/private_fairy/private_fairy_battle?cyt=1";
 	
@@ -74,7 +74,7 @@ public class PrivateFairyBattle {
 			}
 			
 			Process.info.fairy.FairyName = xpath.evaluate("//battle_vs_info/player[last()]/name", doc);
-			Process.info.SetTimeoutByAction(Name);
+			//Process.info.SetTimeoutByAction(Name);
 			
 			String spec = xpath.evaluate("//private_fairy_reward_list/special_item/after_count", doc);
 			if (spec.length() != 0) {
