@@ -24,7 +24,8 @@ public class LvUp {
 	public static boolean run() throws Exception {
 		ArrayList<NameValuePair> post = new ArrayList<NameValuePair>();
 		post.add(new BasicNameValuePair("ap", String.valueOf(Process.info.apUp)));
-		post.add(new BasicNameValuePair("bc", String.valueOf(Process.info.bcUp)));
+		//post.add(new BasicNameValuePair("bc", String.valueOf(Process.info.bcUp)));
+		//去除BC加点
 		try {
 			response = Process.network.ConnectToServer(URL_POINT_SETTING, post, false);
 		} catch (Exception ex) {
