@@ -61,7 +61,7 @@ public class GetFloorInfo {
 				return false;
 			}
 			
-			int areaCount = ((NodeList)xpath.evaluate("//area_info_list/area_info", doc, XPathConstants.NODESET)).getLength();
+			int areaCount = ((NodeList)xpath.evaluate("//response/body/exploration_area/area_info_list/area_info", doc, XPathConstants.NODESET)).getLength();
 			if (areaCount > 0) {
 				//Process.info.area = new Hashtable<Integer,Area>();
 				Process.info.area.clear();
@@ -69,7 +69,7 @@ public class GetFloorInfo {
 			}
 			for (int i = 1; i <= areaCount; i++){
 				Area a = new Area();
-				String p = String.format("//area_info_list/area_info[%d]/",i);
+				String p = String.format("//response/body/exploration_area/area_info_list/area_info/",i);
 				a.areaId = Integer.parseInt(xpath.evaluate(p+"id", doc));
 				a.areaName = xpath.evaluate(p+"name", doc);
 				a.exploreProgress = Integer.parseInt(xpath.evaluate(p+"prog_area", doc));
@@ -118,12 +118,12 @@ public class GetFloorInfo {
 		XPathFactory factory = XPathFactory.newInstance();
 		XPath xpath = factory.newXPath();
 		
-		int floorCount = ((NodeList)xpath.evaluate("//floor_info_list/floor_info", doc, XPathConstants.NODESET)).getLength();
-		String aid = xpath.evaluate("//exploration_floor/area_id", doc);
+		int floorCount = ((NodeList)xpath.evaluate("//response/body/exploration_floor/floor_info_list/floor_info", doc, XPathConstants.NODESET)).getLength();
+		String aid = xpath.evaluate("//response/body/exploration_floor/area_id", doc);
 		
 		for (int j = floorCount; j > 0; j--) {
 			Floor f = new Floor();
-			String p = String.format("//floor_info_list/floor_info[%d]/", j);
+			String p = String.format("//response/body/floor_info_list/floor_info/", j);
 			f.areaId = aid;
 			f.floorId = xpath.evaluate(p+"id", doc);
 			f.cost = Integer.parseInt(xpath.evaluate(p+"cost", doc));

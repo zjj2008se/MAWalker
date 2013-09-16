@@ -21,7 +21,7 @@ import action.ActionRegistry.Action;
 public class Explore {
 	public static final Action Name = Action.EXPLORE;
 	
-	private static final String URL_EXPLORE = "http://game1-cbt.ma.sdo.com:10001/connect/app/exploration/guild_explore?cyt=1";
+	private static final String URL_EXPLORE = "http://game1-cbt.ma.sdo.com:10001/connect/app/exploration/explore?cyt=1";
 	private static byte[] response;
 	
 	public static boolean run() throws Exception {
@@ -32,10 +32,10 @@ public class Explore {
 		try {
 			response = Process.network.ConnectToServer(URL_EXPLORE, post, false);
 		} catch (Exception ex) {
-			if (ex.getMessage().startsWith("302")) {
+			/*if (ex.getMessage().startsWith("302")) {
 				Process.info.events.push(Info.EventType.innerMapJump);
 				return false;
-			}
+			}*/
 			ErrorData.currentDataType = ErrorData.DataType.text;
 			ErrorData.currentErrorType = ErrorData.ErrorType.ConnectionError;
 			ErrorData.text = ex.getMessage();

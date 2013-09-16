@@ -17,24 +17,26 @@ public class Think {
 		int score = Integer.MIN_VALUE + 20;
 		for (int i = 0; i < possible.size(); i++) {
 			switch (possible.get(i)) {
+			//TODO：已修复登录
 			case LOGIN:
 				return ActionRegistry.Action.LOGIN;
 			case ADD_AREA:
 				return Action.ADD_AREA;
 			case GET_FLOOR_INFO:
 				return Action.GET_FLOOR_INFO;
-			case GET_FAIRY_LIST:
+			/*case GET_FAIRY_LIST:
 				if (score < GFL_PRI) {
 					best = Action.GET_FAIRY_LIST;
 					score = GFL_PRI;
 				}
-				break;
+				break;*/
 			case GOTO_FLOOR:
 				if (score < GF_PRI) {
 					best = Action.GOTO_FLOOR;
 					score = GF_PRI;
 				}
 				break;
+				////*
 			/*case PRIVATE_FAIRY_BATTLE:
 				if (Info.Profile == 2) {
 					Process.info.fairy.No = "2";
@@ -42,6 +44,7 @@ public class Think {
 				}
 				if (Think.canBattle()) return Action.PRIVATE_FAIRY_BATTLE;
 				break;*/
+				
 			case EXPLORE:
 				int p = explorePoint();
 				if (p > score) {
@@ -49,12 +52,14 @@ public class Think {
 					score = p;
 				}
 				break;
+				////
 			/*case GUILD_BATTLE:
 				Process.info.fairy.No = Info.PublicFairyBattle.No;
 				return Action.GUILD_BATTLE;
 			case GUILD_TOP:
 				return Action.GUILD_TOP;*/
-			case GET_FAIRY_REWARD:
+				////
+			/*case GET_FAIRY_REWARD:
 				return Action.GET_FAIRY_REWARD;
 			case NOTHING:
 				break;
@@ -63,7 +68,7 @@ public class Think {
 				break;
 			case LV_UP:
 				decideUpPoint();
-				return Action.LV_UP;
+				return Action.LV_UP;*/
 			default:
 				break;
 			}

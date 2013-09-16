@@ -57,13 +57,13 @@ public class AddArea {
 				return false;
 			}
 			
-			int areaCount = ((NodeList)xpath.evaluate("//area_info_list/area_info", doc, XPathConstants.NODESET)).getLength();
+			int areaCount = ((NodeList)xpath.evaluate("//response/body/exploration_area/area_info_list/area_info", doc, XPathConstants.NODESET)).getLength();
 			if (areaCount > 0) Process.info.area = new Hashtable<Integer,Area>();
 			Area newArea = new Area();
 			newArea.areaId = -1;
 			for (int i = areaCount; i > 0; i--){
 				Area a = new Area();
-				String p = String.format("//area_info_list/area_info[%d]/",i);
+				String p = String.format("//response/body/exploration_area/area_info_list/area_info/",i);
 				a.areaId = Integer.parseInt(xpath.evaluate(p+"id", doc));
 				if (Process.info.area.containsKey(a.areaId)) {
 					continue;

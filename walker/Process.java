@@ -94,8 +94,8 @@ public class Process {
 					result.add(Action.GET_FAIRY_REWARD);
 				}
 				break;*/
-			case innerMapJump:
-				Go.log("Map Status Changed!");
+			/*case innerMapJump:
+				Go.log("Map Status Changed!");*/
 			case needFloorInfo:	
 				result.add(Action.GET_FLOOR_INFO);
 				break;
@@ -151,9 +151,9 @@ public class Process {
 			case map:
 				Process.info.events.push(Info.EventType.needFloorInfo);
 				break;
-			case ticket:
+			/*case ticket:
 				if (info.ticket > 0) Process.info.events.push(Info.EventType.cardFull);
-				break;
+				break;*/
 			case reward:
 			default:
 				break;
