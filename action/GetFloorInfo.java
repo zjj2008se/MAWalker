@@ -22,8 +22,8 @@ import action.ActionRegistry.Action;
 public class GetFloorInfo {
 	public static final Action Name = Action.GET_FLOOR_INFO;
 	
-	private static final String URL_AREA = "http://web.million-arthurs.com/connect/app/exploration/area?cyt=1";
-	private static final String URL_FLOOR = "http://web.million-arthurs.com/connect/app/exploration/floor?cyt=1";
+	private static final String URL_AREA = "http://http://game1-cbt.ma.sdo.com:10001/connect/app/exploration/area?cyt=1";
+	private static final String URL_FLOOR = "http://http://game1-cbt.ma.sdo.com:10001/connect/app/exploration/floor?cyt=1";
 	
 	
 	private static byte[] response;

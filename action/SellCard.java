@@ -16,7 +16,7 @@ import action.ActionRegistry.Action;
 public class SellCard {
 	public static final Action Name = Action.SELL_CARD;
 	
-	private static final String URL_SELL_CARD = "http://web.million-arthurs.com/connect/app/trunk/sell?cyt=1";
+	private static final String URL_SELL_CARD = "http://game1-cbt.ma.sdo.com:10001/connect/app/trunk/sell?cyt=1";
 	private static byte[] response;
 	
 	public static boolean run() throws Exception {

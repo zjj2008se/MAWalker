@@ -16,7 +16,7 @@ import action.ActionRegistry.Action;
 public class GotoFloor {
 	public static final Action Name = Action.GOTO_FLOOR;
 	
-	private static final String URL_GET_FLOOR = "http://web.million-arthurs.com/connect/app/exploration/get_floor?cyt=1";
+	private static final String URL_GET_FLOOR = "http://game1-cbt.ma.sdo.com:10001/connect/app/exploration/get_floor?cyt=1";
 	
 	private static byte[] response;
 	

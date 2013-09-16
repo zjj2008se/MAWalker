@@ -20,7 +20,7 @@ import action.ActionRegistry.Action;
 public class AddArea {
 	public static final Action Name = Action.ADD_AREA;
 	
-	private static final String URL_AREA = "http://web.million-arthurs.com/connect/app/exploration/area?cyt=1";	
+	private static final String URL_AREA = "http://game1-cbt.ma.sdo.com:10001/connect/app/exploration/area?cyt=1";	
 	
 	private static byte[] response;
 	

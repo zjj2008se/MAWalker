@@ -16,7 +16,7 @@ import action.ActionRegistry.Action;
 public class LvUp {
 	public static final Action Name = Action.LV_UP;
 	
-	private static final String URL_POINT_SETTING = "http://web.million-arthurs.com/connect/app/town/pointsetting?cyt=1";
+	private static final String URL_POINT_SETTING = "http://game1-cbt.ma.sdo.com:10001/connect/app/town/pointsetting?cyt=1";
 
 	
 	private static byte[] response;

@@ -11,8 +11,8 @@ import action.ActionRegistry.Action;
 
 public class GetFairyReward {
 	public static final Action Name = Action.GET_FAIRY_REWARD;
-	
-	private static final String URL_GET_FAIRY_REWARD = "http://web.million-arthurs.com/connect/app/private_fairy/private_fairy_rewards?cyt=1";
+	//TODO:妖精列表更正
+	private static final String URL_GET_FAIRY_REWARD = "http://game1-cbt.ma.sdo.com:10001/connect/app/private_fairy/private_fairy_rewards?cyt=1";
 	private static byte[] response;
 	
 	public static boolean run() throws Exception {
