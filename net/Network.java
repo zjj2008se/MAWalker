@@ -21,12 +21,14 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.params.HttpParams;
 
+//import com.charlygao.crypt.Crypt;
+
 
 public class Network {
-	private static final String Auth = "eWa25vrE";
-	private static final String Key = "2DbcAh3G";
-	
-	private static final String UserAgent = "Million/235 (aries; aries; 4.1.1) Xiaomi/aries/aries:4.1.1/JRO03L/3.9.6:user/release-keys GooglePlay";
+	//private static final String Auth = "eWa25vrE";
+	//private static final String Key = "2DbcAh3G";
+	private static final String UserAgent = "Million/1.0.1 (iPhone; iPhone5,2; 6.0.1)";
+	//private static final String UserAgent = "Million/1.0.1 (aries; aries; 4.1.1) Xiaomi/aries/aries:4.1.1/JRO03L/3.9.6:user/release-keys";
 	private DefaultHttpClient client;
 	
 	public Network() {
@@ -34,7 +36,7 @@ public class Network {
 		HttpParams hp = client.getParams();
 		hp.setParameter("http.socket.timeout", 0x7530);
 		hp.setParameter("http.connection.timeout", 0x7530);
-	}
+		}
 	
 	private List<NameValuePair> RequestProcess(List<NameValuePair> source, boolean UseDefaultKey) throws InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException {
 		ArrayList<NameValuePair> result = new ArrayList<NameValuePair>();
@@ -51,20 +53,24 @@ public class Network {
 	}
 	
 	public byte[] ConnectToServer(String url, List<NameValuePair> content, boolean UseDefaultKey) throws InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, ClientProtocolException, IOException {
+		
 		List<NameValuePair> post = RequestProcess(content,UseDefaultKey);
 		
 		HttpPost hp = new HttpPost(url);
+		hp.setHeader("Accept", "*/*");
 		hp.setHeader("User-Agent", UserAgent);
+		hp.setHeader("Accept-Language", "en-us");
 		hp.setHeader("Accept-Encoding", "gzip, deflate");
 		hp.setEntity(new UrlEncodedFormEntity(post,"UTF-8"));
 		
-		AuthScope as = new AuthScope(hp.getURI().getHost(),hp.getURI().getPort());
-		CredentialsProvider cp = client.getCredentialsProvider();
-		UsernamePasswordCredentials upc = new UsernamePasswordCredentials(Auth,Key);
-		cp.setCredentials(as, upc);
+		//AuthScope as = new AuthScope(hp.getURI().getHost(),hp.getURI().getPort());
+		//CredentialsProvider cp = client.getCredentialsProvider();
+		//UsernamePasswordCredentials upc = new UsernamePasswordCredentials(Auth,Key);
+		//cp.setCredentials(as, upc);
 		byte[] b = client.execute(hp,new HttpResponseHandler());
+		//return Crypto.DecryptWithKey(b);
 		
-		/* end */
+		// end */
 		if (b != null) {
 			if (url.contains("gp_verify_receipt?")) {
 				// need to be decoded
@@ -85,6 +91,8 @@ public class Network {
 			}
 		} 
 		return null;
-	}
-	
+		}
 }
+	
+	
+

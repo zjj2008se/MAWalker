@@ -12,23 +12,47 @@ import net.Crypto;
 public class Go {
 
 	public static void main(String[] args) {
-		if (args.length < 1)  {
+		//String args1 = "main.xml";
+		/*if (args.length < 1)  {
 			printHelp();
 			return;
-		}
+		}*/
 		try {
-			GetConfig.parse(Process.ParseXMLBytes(ReadFileAll(args[0])));
+			//GetConfig.parse(Process.ParseXMLBytes(ReadFileAll(args[0])));
+			GetConfig.parse(Process.ParseXMLBytes(ReadFileAll("main.xml")));
 		} catch (Exception e) {
 			e.printStackTrace();
 			return;
 		}
+		
+		while (true) {
+			Process proc = new Process();
+			Profile2 prof = new Profile2();
+			while(true) {
+				try {
+					switch (Info.Profile) {
+					case 1:
+						proc.auto();
+						break;
+					case 2:
+						prof.auto();
+						break;
+					}
+				} catch (Exception ex) {
+					Go.log(ex.getMessage());
+					Process.info.events.add(EventType.cookieOutOfDate);
+					Go.log("Restart");
+				}
+			
+		
+		
 		if (args.length < 3) {
 			System.out.println(Version.printVersion());
 			Go.log(String.format("Read cards that can be sold (%d).", Info.CanBeSold.size()));
 		}
 		if (args.length == 1) {
 			// auto mode
-			while (true) {
+			/*while (true) {
 				Process proc = new Process();
 				Profile2 prof = new Profile2();
 				while(true) {
@@ -47,7 +71,7 @@ public class Go {
 						Go.log("Restart");
 					}
 				}
-			}
+			}*/
 
 		} else if (args.length == 2) {
 			if (args[1].equals("-m")) {
@@ -83,6 +107,8 @@ public class Go {
 			}
 		} else {
 			printHelp();
+		}
+		}
 		}
 	}
 

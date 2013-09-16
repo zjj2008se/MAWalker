@@ -11,9 +11,9 @@ import walker.Info;
 
 public class Crypto {
 	//日服key
-	private static final String BaseSecretKey = "uH9JF2cHf6OppaC1";
+	//private static final String BaseSecretKey = "uH9JF2cHf6OppaC1";
 	//国服key
-	//private static final String UnusedSecretKey = "rBwj1MIAivVN222b";	
+	private static final String BaseSecretKey = "rBwj1MIAivVN222b";	
 	
 	
 	
@@ -59,11 +59,30 @@ public class Crypto {
 		return c.doFinal(ciphertext);
 	}
 	
+	
+	public static String a = BaseSecretKey;
+	public static byte[] decode(byte[] paramArrayOfByte) {
+		return decode(paramArrayOfByte, a.getBytes());
+	}
+	
+	public static byte[] decode(byte[] paramArrayOfByte1,byte[] paramArrayOfByte2) {
+		SecretKeySpec localSecretKeySpec = new SecretKeySpec(paramArrayOfByte2,"AES");
+		try {
+			Cipher localCipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+			localCipher.init(2, localSecretKeySpec);
+			byte[] arrayOfByte = localCipher.doFinal(paramArrayOfByte1);
+			return arrayOfByte;
+		} catch (Exception localException) {
+			localException.printStackTrace();
+		}
+		return null;
+	}
+	
 	public static byte[] DecryptNoKey(byte[] Ciphertext) throws InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException{
 		return decrypt2Bytes(Ciphertext, false);
 	}
 
 	public static byte[] DecryptWithKey(byte[] ciphertext) throws InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException {
-		return decrypt2Bytes(ciphertext, true);
+		return decode(ciphertext);
 	}
 }
