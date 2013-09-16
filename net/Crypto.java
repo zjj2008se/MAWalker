@@ -19,8 +19,8 @@ public class Crypto {
 	
 	private static String GetSecretKey(boolean useLoginId) {
 		String pw = BaseSecretKey;
-		if (useLoginId) pw += Info.LoginId;
-		while(pw.length() < 32) pw += "0";
+		/*if (useLoginId) pw += Info.LoginId;
+		while(pw.length() < 32) pw += "0";*/
 		return pw;
 	}
 	

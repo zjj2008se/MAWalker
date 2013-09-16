@@ -34,8 +34,8 @@ public class Network {
 	public Network() {
 		client = new DefaultHttpClient();
 		HttpParams hp = client.getParams();
-		hp.setParameter("http.socket.timeout", 0x7530);
-		hp.setParameter("http.connection.timeout", 0x7530);
+		//hp.setParameter("http.socket.timeout", 0x7530);
+		//hp.setParameter("http.connection.timeout", 0x7530);
 		}
 	
 	private List<NameValuePair> RequestProcess(List<NameValuePair> source, boolean UseDefaultKey) throws InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException {
@@ -43,24 +43,21 @@ public class Network {
 		Iterator<NameValuePair> i  = source.iterator();
 		while(i.hasNext()) {
 			NameValuePair n = i.next();
-			if (UseDefaultKey) {
-				result.add(new BasicNameValuePair(n.getName(),Crypto.Encrypt2Base64NoKey(n.getValue())));
-			} else {
-				result.add(new BasicNameValuePair(n.getName(),Crypto.Encrypt2Base64WithKey(n.getValue())));
-			}	
-		}
+			result.add(new BasicNameValuePair(n.getName(),Crypto.Encrypt2Base64WithKey(n.getValue())));
+			}
 		return result;
 	}
 	
 	public byte[] ConnectToServer(String url, List<NameValuePair> content, boolean UseDefaultKey) throws InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, ClientProtocolException, IOException {
 		
-		List<NameValuePair> post = RequestProcess(content,UseDefaultKey);
+		List<NameValuePair> post = RequestProcess(content,true);
 		
 		HttpPost hp = new HttpPost(url);
 		hp.setHeader("Accept", "*/*");
 		hp.setHeader("User-Agent", UserAgent);
 		hp.setHeader("Accept-Language", "en-us");
-		hp.setHeader("Accept-Encoding", "gzip, deflate");
+		hp.setHeader("Accept-Encoding", "gzip");
+		//hp.setHeader("Accept-Encoding", "gzip, deflate");
 		hp.setEntity(new UrlEncodedFormEntity(post,"UTF-8"));
 		
 		//AuthScope as = new AuthScope(hp.getURI().getHost(),hp.getURI().getPort());

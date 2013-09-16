@@ -51,8 +51,12 @@ public class Login {
 			}
 		}
 		ArrayList<NameValuePair> al = new ArrayList<NameValuePair>();
-		al.add(new BasicNameValuePair("login_id",Info.LoginId));
-		al.add(new BasicNameValuePair("password",Info.LoginPw));
+		//TODO:修复登录
+		al.add(new BasicNameValuePair("login_id","13546943376"));
+		al.add(new BasicNameValuePair("password","qwertyuiop"));
+		
+		/*al.add(new BasicNameValuePair("login_id",Info.LoginId));
+		al.add(new BasicNameValuePair("password",Info.LoginPw));*/
 		try {
 			result = Process.network.ConnectToServer(URL_LOGIN, al,true);
 		} catch (Exception ex) {
